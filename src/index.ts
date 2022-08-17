@@ -43,7 +43,7 @@ function cadastrarProduto(
 //   ])
 // );
 
-const listaProdutos: Array<Produto> = [];
+let listaProdutos: Array<Produto> = [];
 
 listaProdutos.push(
   cadastrarProduto("Pente", 10, "utensilio", true, [
@@ -61,5 +61,13 @@ listaProdutos.push(
 );
 
 listaProdutos.push(cadastrarProduto("Cubo mágico", 20, "Brinquedo", false, []));
+
+console.log(listaProdutos);
+
+function descadastrarProduto(codigo: number): Produto[] {
+  listaProdutos = listaProdutos.filter((produto) => produto.codigo !== codigo);
+  return listaProdutos;
+}
+descadastrarProduto(0);
 
 console.log(listaProdutos);

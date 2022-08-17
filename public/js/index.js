@@ -21,7 +21,7 @@ function cadastrarProduto(nome, preco, tipo, freteGratis, coresDisponiveis) {
 //     "vermelho",
 //   ])
 // );
-const listaProdutos = [];
+let listaProdutos = [];
 listaProdutos.push(cadastrarProduto("Pente", 10, "utensilio", true, [
     "azul",
     "verde",
@@ -33,4 +33,10 @@ listaProdutos.push(cadastrarProduto("Escova de Dente", 15, "Higiene Bucal", true
     "roxa",
 ]));
 listaProdutos.push(cadastrarProduto("Cubo mágico", 20, "Brinquedo", false, []));
+console.log(listaProdutos);
+function descadastrarProduto(codigo) {
+    listaProdutos = listaProdutos.filter((produto) => produto.codigo !== codigo);
+    return listaProdutos;
+}
+descadastrarProduto(0);
 console.log(listaProdutos);
