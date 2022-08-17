@@ -71,3 +71,10 @@ function descadastrarProduto(codigo: number): Produto[] {
 descadastrarProduto(0);
 
 console.log(listaProdutos);
+
+function listarProdutos(tipo?: string): string[] {
+  return listaProdutos.map((produto) => {
+    return `Produto nome ${produto.nome}`;
+  });
+}
+console.log(listarProdutos());

@@ -40,3 +40,9 @@ function descadastrarProduto(codigo) {
 }
 descadastrarProduto(0);
 console.log(listaProdutos);
+function listarProdutos(tipo) {
+    return listaProdutos.map((produto) => {
+        return `Produto nome ${produto.nome}`;
+    });
+}
+console.log(listarProdutos());
