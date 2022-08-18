@@ -113,3 +113,9 @@ console.log("Lista Final sem param. frete grátis: ", listarProdutos({}));
 // freteGratis === false || freteGratis === true
 // ? produto.freteGratis === freteGratis
 // : produto
+
+function produtoSelecionado(codigo: number): Produto | undefined {
+  return listaProdutos.find((produto)=> codigo === produto.codigo )
+}
+
+console.log("Produto selecionado com codigo: ", produtoSelecionado(5));
