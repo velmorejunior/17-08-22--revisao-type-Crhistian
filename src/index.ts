@@ -119,3 +119,21 @@ function produtoSelecionado(codigo: number): Produto | undefined {
 }
 
 console.log("Produto selecionado com codigo: ", produtoSelecionado(5));
+
+function updateProduto( codigo: number, produto: Produto ): Produto[] {
+  const index = listaProdutos.findIndex((produto) => produto.codigo === codigo)
+  if (index === -1) return listaProdutos
+  
+  listaProdutos[index] = produto
+  return listaProdutos
+}
+
+console.log(updateProduto(3, {
+  codigo: 1,
+  nome: "Caneca",
+  preco: 100,
+  tipo: "cozinha",
+  quantidade: 1,
+  freteGratis: true,
+  coresDisponiveis: ['preto', ]
+}))
