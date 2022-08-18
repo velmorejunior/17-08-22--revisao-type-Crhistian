@@ -72,9 +72,44 @@ descadastrarProduto(0);
 
 console.log(listaProdutos);
 
-function listarProdutos(tipo?: string): string[] {
-  return listaProdutos.map((produto) => {
-    return `Produto nome ${produto.nome}`;
-  });
+function listarProdutos({
+  tipo,
+  precoMax,
+  freteGratis,
+}: {
+  tipo?: string;
+  precoMax?: number;
+  freteGratis?: boolean;
+}): string[] {
+  return listaProdutos
+    .filter((produto) => {
+      if (tipo) return produto.tipo.toLowerCase() === tipo.toLowerCase();
+      return produto;
+    })
+    .filter((produto) => {
+      if (precoMax) return produto.preco <= precoMax;
+      return produto;
+    })
+    .filter((produto) => {
+      if (freteGratis === false || freteGratis === true)
+        return produto.freteGratis === freteGratis;
+      return produto;
+    })
+    .map((produto) => {
+      return `Produto nome ${produto.nome}`;
+    });
 }
-console.log(listarProdutos());
+
+console.log(
+  "Lista Final com frete grátis: ",
+  listarProdutos({ freteGratis: true })
+);
+console.log(
+  "Lista Final sem frete grátis: ",
+  listarProdutos({ freteGratis: false })
+);
+console.log("Lista Final sem param. frete grátis: ", listarProdutos({}));
+
+// freteGratis === false || freteGratis === true
+// ? produto.freteGratis === freteGratis
+// : produto
